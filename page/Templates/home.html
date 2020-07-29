@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+ function validCheck(){
+     if(form.one.value==''||)
+ }
+</script>
+</head>
+
+<body>
+    당신이 입력한 값은??
+
+    <form>
+        <input type='number' name="one" max="49">
+        <input type='number' name="two" max="49">
+        <input type='number' name="three" max="49">
+        <input type='number' name="four" max="49">
+        <input type='number' name="five" max="49">
+        <input type='number' name="six" max="49">
+
+        <input type="submit" class="lotto_kdy" value="구매 하기" onclick="validCheck()">
+
+    </form>
+
+    <script>
+        
+        
+        var lotto_kdy = new Array();
+
+        for (var i = 0; i < 7; i++) {
+            lotto_kdy = request.GET['lotto_kdy' + str(i + 1)]
+            lotto_kdy.push(int(lotto_kdy))
+        }
+
+        var random_kdy = new Array();
+        while (random_kdy.length < 7) {
+            let rand = Math.floor(Math.random() * 49) + 1;
+            if (random_kdy.indexOf(rand) === -1) {
+                random_kdy.push(rand);
+            }
+        }
+        count = 0;
+        for (var a = 0; a < 6; a++) {
+            for (var b = 0; b < 7; b++) {
+                if (lotto_kdy[a] == random_kdy[b]) {
+                    count += 1;
+                }
+            }
+        }
+        document.write("당신이 입력한 값은 이거입니다!");
+        document.write('lotto_kdy');
+        if (count == 6) {
+            document.write("1등");
+        } else if (count == 5) {
+            document.write("2등");
+        } else if (count == 4) {
+            document.write("3등");
+        } else if (count == 3) {
+            document.write("4등");
+        } else if (count == 2) {
+            document.write("5등");
+        } else if (count < 2) {
+            document.write("ㅠㅠ꽝이여");
+        }
+    </script>
+
+</body>
+
+</html>
